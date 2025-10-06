@@ -17,9 +17,10 @@ services:
     restart: unless-stopped
 
   ui:
-    image: ghcr.io/abuqaiselegant/ai-agent-ui:latest    # optional tag for consistency
+    image: ghcr.io/abuqaiselegant/ai-agent-ui:latest
     build:
-      context: ./ui
+      context: .              # <— repo root
+      dockerfile: ui/Dockerfile
     container_name: ai-agent-ui
     ports: ["8501:8501"]
     environment:
@@ -30,3 +31,4 @@ services:
       api:
         condition: service_healthy
     restart: unless-stopped
+

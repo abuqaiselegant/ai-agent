@@ -44,8 +44,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v6
         with:
-          context: ./ui
-          file: ./ui/Dockerfile
+          context: .                # <— repo root
+          file: ui/Dockerfile       # <— explicit path
           push: true
           tags: |
             ghcr.io/abuqaiselegant/ai-agent-ui:latest

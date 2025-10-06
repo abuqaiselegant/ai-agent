@@ -1,0 +1,18 @@
+# root dockerignore
+.git
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.DS_Store
+
+# local envs/venvs
+.venv/
+venv/
+ui/.venv/
+
+# streamlit secrets (never in images)
+ui/.streamlit/secrets.toml
+
+# node stuff if any
+node_modules/
