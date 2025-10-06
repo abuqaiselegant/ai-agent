@@ -1,0 +1,27 @@
+services:
+  api:
+    image: ghcr.io/abuqaiselegant/ai-agent-api:latest
+    container_name: ai-agent-api
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      - CORS_ORIGINS=https://your-ui-domain.com
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  ui:
+    image: ghcr.io/abuqaiselegant/ai-agent-ui:latest
+    container_name: ai-agent-ui
+    ports: ["8501:8501"]
+    environment:
+      - API_BASE_URL=http://api:8000
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
