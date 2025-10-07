@@ -14,9 +14,6 @@ UI is Streamlit; backend is FastAPI orchestrated with LangGraph. Fully Dockerize
    In the Streamlit app, you enter a ticker and choose modules (News, Equity, Sentiment, Indicators, Decision). The UI hits:
 GET /agent/{symbol}?news=1&equity=1&sentiment=1&indicators=1&decision=1
 
-markdown
-Copy code
-
 2) **Agent orchestration (LangGraph)**  
 The API runs a small graph where each node is optional:
 - **News** → fetch recent headlines (`NEWS_API_KEY`).
@@ -76,6 +73,7 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
 
