@@ -65,33 +65,15 @@ Create a .env (copy from .env.example):
 # Backend (API)
 OPENAI_API_KEY=your-openai-key
 NEWS_API_KEY=your-news-api-key
-# Local dev CORS toward Streamlit
-CORS_ORIGINS=http://localhost:8501
 
 UI env: API_BASE_URL=https://ai-agent-3yvo.onrender.com
 API env: CORS_ORIGINS=https://ai-agent-ui-ojg6.onrender.com
 
-Run locally (Docker)
-
-docker compose up
-# UI:  http://localhost:8501
-# API: http://localhost:8000/health
-
-Stop:
-docker compose down
-
-
 2) UI
 Runtime: Docker
-
 Dockerfile path: ui/Dockerfile
-
 Environment:
-
 API_BASE_URL=https://ai-agent-3yvo.onrender.com
-
-Open the UI URL and test.
-If CORS appears, ensure API CORS_ORIGINS matches the UI URL exactly (no trailing slash).
 
 Troubleshooting
 500 from /agent → Render API logs: most often a missing env (OPENAI_API_KEY, NEWS_API_KEY) or a Python dep (add to app/requirements.txt, push).
@@ -102,5 +84,6 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
