@@ -41,6 +41,7 @@ Project structure
 
 ai-agent/
 ├─ app/        # FastAPI backend (package: app)
+
 │  ├─ services/            # news, sentiment, indicators, orchestrator, ...
 │  ├─ main.py              # FastAPI app + CORS + /health
 │  ├─ routes.py            # /agent/{symbol}
@@ -84,6 +85,7 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
 
