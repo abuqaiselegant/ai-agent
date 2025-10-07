@@ -59,25 +59,16 @@ ai-agent/
 └─ .env.example               # sample envs (copy to .env)
 ```
 
-
-Environment: 
+##Environment: 
 Create a .env (copy from .env.example):
 
-# Backend (API)
+## Backend (API)
 OPENAI_API_KEY=your-openai-key | 
 NEWS_API_KEY=your-news-api-key
 
+##Render
 UI env: API_BASE_URL=https://ai-agent-3yvo.onrender.com |
 API env: CORS_ORIGINS=https://ai-agent-ui-ojg6.onrender.com
-
-2) UI
-Runtime: Docker
-Dockerfile path: ui/Dockerfile
-Environment:
-API_BASE_URL=https://ai-agent-3yvo.onrender.com
-
-Troubleshooting
-500 from /agent → Render API logs: most often a missing env (OPENAI_API_KEY, NEWS_API_KEY) or a Python dep (add to app/requirements.txt, push).
 
 CORS error → API CORS_ORIGINS must equal the UI URL; UI API_BASE_URL must point to the API URL.
 
@@ -85,6 +76,7 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
 
