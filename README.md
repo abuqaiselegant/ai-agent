@@ -38,26 +38,26 @@ API: OPENAI_API_KEY, NEWS_API_KEY, CORS_ORIGINS
 UI: API_BASE_URL (points to the API URL)
 
 Project structure
-
+```
 ai-agent/
-├─ app/        # FastAPI backend (package: app)
-
-│  ├─ services/            # news, sentiment, indicators, orchestrator, ...
-│  ├─ main.py              # FastAPI app + CORS + /health
-│  ├─ routes.py            # /agent/{symbol}
+├─ app/                        # FastAPI backend (package: app)
+│  ├─ services/               # news, sentiment, indicators, orchestrator, ...
+│  ├─ main.py                 # FastAPI app + CORS + /health
+│  ├─ routes.py               # /agent/{symbol}
 │  ├─ requirements.txt
 │  └─ Dockerfile
-├─ ui/         # Streamlit frontend
-│  ├─ app.py               # landing + health ping
-│  ├─ pages/1_Agent.py     # Agent UI (tabs)
-│  ├─ components/          # summary, news table, auth box
-│  ├─ lib/                 # api client, viz, models, state
+├─ ui/                         # Streamlit frontend
+│  ├─ app.py                  # landing + health ping
+│  ├─ pages/1_Agent.py        # Agent UI (tabs)
+│  ├─ components/             # summary, news table, auth box
+│  ├─ lib/                    # api client, viz, models, state
 │  ├─ requirements.txt
 │  └─ Dockerfile
 ├─ docker-compose.yml         # dev: build from source
 ├─ docker-compose.prod.yml    # prod: pull images from GHCR
 ├─ .github/workflows/docker.yml
 └─ .env.example               # sample envs (copy to .env)
+```
 
 
 Environment
@@ -85,6 +85,7 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
 
