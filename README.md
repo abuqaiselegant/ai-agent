@@ -30,16 +30,15 @@ API returns:
 ```json
 {"news": {...}, "equity": {...}, "sentiment": {...}, "indicators": {...}, "decision": {...}}
 Streamlit shows a Summary (decision + sentiment), Chart, News, Sentiment, Indicators, and JSON tabs.
+```
 
 Env keys used
 
 API: OPENAI_API_KEY, NEWS_API_KEY, CORS_ORIGINS
-
 UI: API_BASE_URL (points to the API URL)
 
 Project structure
-bash
-Copy code
+
 ai-agent/
 ├─ app/        # FastAPI backend (package: app)
 │  ├─ services/            # news, sentiment, indicators, orchestrator, ...
@@ -58,11 +57,11 @@ ai-agent/
 ├─ docker-compose.prod.yml    # prod: pull images from GHCR
 ├─ .github/workflows/docker.yml
 └─ .env.example               # sample envs (copy to .env)
+
+
 Environment
 Create a .env (copy from .env.example):
 
-ini
-Copy code
 # Backend (API)
 OPENAI_API_KEY=your-openai-key
 NEWS_API_KEY=your-news-api-key
@@ -73,47 +72,14 @@ UI env: API_BASE_URL=https://ai-agent-3yvo.onrender.com
 API env: CORS_ORIGINS=https://ai-agent-ui-ojg6.onrender.com
 
 Run locally (Docker)
-bash
-Copy code
+
 docker compose up
 # UI:  http://localhost:8501
 # API: http://localhost:8000/health
+
 Stop:
-
-bash
-Copy code
 docker compose down
-CI/CD (GitHub → GHCR)
-The workflow .github/workflows/docker.yml builds and pushes:
 
-bash
-Copy code
-ghcr.io/abuqaiselegant/ai-agent-api:latest
-ghcr.io/abuqaiselegant/ai-agent-ui:latest
-One-time repo setting:
-Settings → Actions → General → Workflow permissions → “Read and write permissions”.
-
-Packages appear under your profile → Packages; you can set them Public.
-
-Deploy on Render (free)
-Create two Web Services from this repo.
-
-1) API
-Runtime: Docker
-
-Dockerfile path: app/Dockerfile
-
-Health Check Path: /health
-
-Environment:
-
-OPENAI_API_KEY = your key
-
-NEWS_API_KEY = your key
-
-after UI is live: CORS_ORIGINS=https://ai-agent-ui-ojg6.onrender.com
-
-Copy the API URL (e.g., https://ai-agent-3yvo.onrender.com).
 
 2) UI
 Runtime: Docker
@@ -136,4 +102,5 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
