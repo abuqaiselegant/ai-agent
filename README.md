@@ -60,14 +60,14 @@ ai-agent/
 ```
 
 
-Environment
+Environment: 
 Create a .env (copy from .env.example):
 
 # Backend (API)
-OPENAI_API_KEY=your-openai-key
+OPENAI_API_KEY=your-openai-key | 
 NEWS_API_KEY=your-news-api-key
 
-UI env: API_BASE_URL=https://ai-agent-3yvo.onrender.com
+UI env: API_BASE_URL=https://ai-agent-3yvo.onrender.com |
 API env: CORS_ORIGINS=https://ai-agent-ui-ojg6.onrender.com
 
 2) UI
@@ -85,6 +85,7 @@ Streamlit secrets.toml error → not needed in Docker/Render; UI reads env (API_
 
 License
 MIT © 2025 — abuqaiselegant
+
 
 
 
