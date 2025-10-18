@@ -90,7 +90,7 @@ def get_theme_styles(theme='dark'):
         <style>
             .stApp { background-color: #f8fafc; }
             .main .block-container { padding-top: 1.5rem; max-width: 1400px; }
-            h1 { color: #0f172a; font-weight: 600; font-size: 2.2rem !important; }
+            h1 { color: #0f172a !important; font-weight: 600; font-size: 2.2rem !important; }
             h2, h3, h4, h5 { color: #1e293b; font-weight: 600; }
             .stApp p, .stMarkdown { color: #64748b; }
             
